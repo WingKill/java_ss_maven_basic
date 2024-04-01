@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Calculator calculator = new edu.sejong.ex.Calculator(); -->
+	<bean id="calculator" class="edu.sejong.ex.Calculator"/>
+
+	<bean id="myCalculator" class="edu.sejong.ex.MyCalculator">
+		<!-- myCalculator.setFirstNum() -->
+		<property name="firstNum" value="10"></property>
+		<!-- myCalculator.setSecondNum() -->
+		<property name="secondNum" value="2"></property>
+		
+		<property name="calculator">
+			<ref bean="calculator"/>
+		</property>
+	</bean>
+	
+	<bean id="grade" class="edu.sejong.ex.Grade">
+		<property name="kor" value="96"></property>
+		<property name="eng" value="84"></property>
+		<property name="math" value="90"></property>
+	</bean>
+</beans>
